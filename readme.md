@@ -1,10 +1,11 @@
 ### Node services for traefik-router
 
-#### usage:  
-`sudo docker build -t config_api .`
+#### Настройка
+* 7080 - стандартный порт прокси-сервера, меняется в traefik.toml
+* 7081 - стандартный порт api конфигуратора, меняется в uwsgi.ini
 
-`sudo docker run -d -v traefik:/etc/traefik --name traefik_config -p 8081:80 config_api`  
-`sudo docker run -d -v traefik:/etc/traefik --name traefik_server -p 8080:8080 traefik`  
-
-* 8080 is default routing port
-* 8081 is default configuration port
+#### Запуск
+`# conda env create -f env.yml -n router`
+`# activate router`
+`# nohup uwsgi --ini uwsgi.ini & disown`
+`# nohup ./traefik -c traefik.conf`

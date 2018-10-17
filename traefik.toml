@@ -1,11 +1,11 @@
 
 [entryPoints]
   [entryPoints.http]
-    address = ":8080"
+    address = ":7080"
 
 [ping]
   entryPoint = "http"
 
 [file]
-  filename="/etc/traefik/routes.toml"
+  filename="routes.toml"
   watch = true
